@@ -79,14 +79,17 @@ document.addEventListener('keydown', function (evt) {
     if (evt.keyCode === 32) {
       if (evt.shiftKey) {
         jumpto('prev')
+        evt.preventDefault()
       } else {
         jumpto('next')
+        evt.preventDefault()
       }
     } else if (evt.keyCode === 13) {
       copyFocusedEmoji(evt.target, evt.shiftKey)
     } else if (Object.keys(directions).indexOf(evt.keyCode.toString()) >= 0) {
       // on navigation, navigate
       jumpto(directions[evt.keyCode])
+      evt.preventDefault()
     }
   }
 
