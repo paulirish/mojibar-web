@@ -105,7 +105,9 @@ function copyFocusedEmoji (emoji, copyText) {
   } else {
     data = emoji.innerText
   }
-  // clipboard.writeText(data)
+  // write to clipboard with fancy clipboard API
+  // TODO: add polyfill for browsers wtihout support https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText
+  navigator.clipboard.writeText(data)
   searchInput.value = ''
   search('')
   // ipc.send('abort')
