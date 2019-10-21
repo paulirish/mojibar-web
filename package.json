@@ -5,14 +5,13 @@
   "main": "index.html",
   "scripts": {
     "serve": "parcel index.html",
-    "build": "rm -rf dist/*; parcel build --public-url '.' index.html",
-    "deploy": "gh-pages -d dist"
+    "deploy": "rm -rf dist/*; parcel build --public-url '.' index.html && gh-pages -d dist"
   },
   "author": "muan",
   "license": "MIT",
   "devDependencies": {
     "gh-pages": "^2.1.1",
-    "parcel": "^2.0.0-alpha.2.1"
+    "parcel": "^1.12.4"
   },
   "dependencies": {
     "electron": "^6.0.12",
