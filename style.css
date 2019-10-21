@@ -18,6 +18,7 @@ main {
   height: 400px;
   max-height: 100%;
   position: relative;
+  contain: strict;
 }
 
 .prepend-mag {
@@ -44,9 +45,10 @@ main {
 }
 
 .results {
-  height: calc(100% - 57px);
+  height: calc(100% - 60px);
   overflow-y: scroll;
   overflow-x: hidden;
+  contain: strict;
 }
 
 .code {
