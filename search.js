@@ -45,6 +45,9 @@ function fetchAndUpdateLocalCache () {
     }
   }
 }
+// Refresh emoji
+setTimeout(fetchAndUpdateLocalCache, 10 * 1000);
+
 
 searchInput.dataset.isSearchInput = true
 searchInput.focus()
