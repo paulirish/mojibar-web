@@ -109,7 +109,7 @@ function copyFocusedEmoji (emoji, copyText) {
   if (copyText) {
     data = ':' + emoji.getAttribute('aria-label') + ':'
   } else {
-    data = emoji.innerText
+    data = emoji.textContent
   }
   // write to clipboard with fancy clipboard API
   // TODO: add polyfill for browsers wtihout support https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText
@@ -171,13 +171,18 @@ function search (query, shouldSkipThrottling) {
       results.unshift(query)
     }
 
-    renderResults(results, document.querySelector('.js-results'))
-    if (document.querySelector('.emoji')) document.querySelector('.emoji').scrollIntoViewIfNeeded()
+    const container = document.querySelector('.js-results')
+    const scrollTop = container.scrollTop
+    renderResults(results, container)
+    const first = document.querySelector('.emoji')
+    if (first && scrollTop) {
+      first.scrollIntoViewIfNeeded()
+    }
   }, shouldSkipThrottling ? 0 : 80)
 }
 
 function renderResults (emojiNameArray, containerElement) {
-  containerElement.innerHTML = ''
+  containerElement.textContent = ''
   var modifierValue = preference['skin-tone-modifier']
   var modifier = modifiers.indexOf(modifierValue) >= 0 ? modifierValue : null
   const elems = emojiNameArray.map(function (name) {
