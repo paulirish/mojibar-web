@@ -9,7 +9,7 @@ var indexKeys = Object.keys(index)
 var emojikeyIndexTable = buildEmojikeyIndexTable()
 var searching = false
 var searchInput = document.querySelector('.js-search')
-var preference = JSON.parse(localStorage.getItem('preference'))
+var preference = JSON.parse(localStorage.getItem('preference')) || {};
 var directions = {
   37: 'left',
   38: 'up',
