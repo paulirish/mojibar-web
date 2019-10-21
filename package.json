@@ -12,10 +12,10 @@
   "license": "MIT",
   "devDependencies": {
     "gh-pages": "^2.1.1",
-    "parcel": "^1.12.4"
+    "parcel": "^2.0.0-alpha.2.1"
   },
   "dependencies": {
     "electron": "^6.0.12",
-    "emojilib": "2.2.3"
+    "emojilib": "2.4.0"
   }
 }
