@@ -1,6 +1,6 @@
 /* global localStorage, alert */
 var preference
-var ipc = require('electron').ipcRenderer
+// var ipc = require('electron').ipcRenderer
 var modifiers = require('emojilib').fitzpatrick_scale_modifiers
 
 var defaultPreference = {
@@ -20,7 +20,7 @@ var preferenceNames = {
 var applyPreferences = function (preference, initialization) {
   localStorage.setItem('preference', JSON.stringify(preference))
 
-  ipc.send('update-preference', preference, initialization)
+  // ipc.send('update-preference', preference, initialization)
   var style = document.createElement('style')
   style.innerText = '.emoji { font-size: ' + preference['emoji-size'] + 'px; width: ' + (Number(preference['emoji-size']) + 20) + 'px; height: ' + (Number(preference['emoji-size']) + 20) + 'px; }'
   document.body.appendChild(style)
@@ -51,20 +51,20 @@ if (localStorage.getItem('preference')) {
 
 applyPreferences(preference, true)
 
-ipc.on('open-preference', function (event, message) {
-  togglePreferencePanel()
-})
+// ipc.on('open-preference', function (event, message) {
+//   togglePreferencePanel()
+// })
 
-ipc.on('preference-updated', function (event, result, initialization) {
-  if (result) {
-    if (!initialization) {
-      alert('Saved!')
-      togglePreferencePanel()
-    }
-  } else {
-    alert('Something went wrong, likely related to keybindings. See http://electron.atom.io/docs/v0.36.5/api/accelerator/ for more.')
-  }
-})
+// ipc.on('preference-updated', function (event, result, initialization) {
+//   if (result) {
+//     if (!initialization) {
+//       alert('Saved!')
+//       togglePreferencePanel()
+//     }
+//   } else {
+//     alert('Something went wrong, likely related to keybindings. See http://electron.atom.io/docs/v0.36.5/api/accelerator/ for more.')
+//   }
+// })
 
 var togglePreferencePanel = function () {
   if (document.body.classList.contains('on-preference')) {

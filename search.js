@@ -2,8 +2,8 @@
 var emojilib = JSON.parse(localStorage.getItem('emojilib')) || require('emojilib').lib
 var emojikeys = JSON.parse(localStorage.getItem('emojikeys')) || require('emojilib').ordered
 var modifiers = require('emojilib').fitzpatrick_scale_modifiers
-var clipboard = require('electron').clipboard
-var ipc = require('electron').ipcRenderer
+// var clipboard = require('electron').clipboard
+// var ipc = require('electron').ipcRenderer
 var index = buildIndex()
 var indexKeys = Object.keys(index)
 var emojikeyIndexTable = buildEmojikeyIndexTable()
@@ -53,13 +53,13 @@ searchInput.addEventListener('input', function () {
   search(this.value.toLowerCase())
 })
 
-ipc.on('show', function (event, message) {
-  searchInput.focus()
-})
+// ipc.on('show', function (event, message) {
+//   searchInput.focus()
+// })
 
-ipc.on('fetch', function (event, message) {
-  fetchAndUpdateLocalCache()
-})
+// ipc.on('fetch', function (event, message) {
+//   fetchAndUpdateLocalCache()
+// })
 
 document.addEventListener('mousewheel', function (e) {
   if (e.deltaY % 1 !== 0) {
@@ -97,7 +97,7 @@ document.addEventListener('keydown', function (evt) {
     evt.preventDefault()
   } else if (evt.keyCode === 27) {
     // on escape: exit
-    ipc.send('abort')
+    // ipc.send('abort')
   }
 })
 
@@ -109,10 +109,10 @@ function copyFocusedEmoji (emoji, copyText) {
   } else {
     data = emoji.innerText
   }
-  clipboard.writeText(data)
+  // clipboard.writeText(data)
   searchInput.value = ''
   search('')
-  ipc.send('abort')
+  // ipc.send('abort')
 }
 
 document.addEventListener('keypress', function (evt) {
