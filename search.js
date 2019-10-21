@@ -51,7 +51,7 @@ setTimeout(fetchAndUpdateLocalCache, 10 * 1000);
 
 searchInput.dataset.isSearchInput = true
 searchInput.focus()
-search('')
+search('', true)
 searchInput.addEventListener('input', function () {
   search(this.value.toLowerCase())
 })
@@ -140,7 +140,7 @@ function stringIncludes (string, search) {
   }
 }
 
-function search (query) {
+function search (query, shouldSkipThrottling) {
   if (searching) {
     clearTimeout(searching)
   }
@@ -170,7 +170,7 @@ function search (query) {
 
     renderResults(results, document.querySelector('.js-results'))
     if (document.querySelector('.emoji')) document.querySelector('.emoji').scrollIntoViewIfNeeded()
-  }, 80)
+  }, shouldSkipThrottling ? 0 : 80)
 }
 
 function renderResults (emojiNameArray, containerElement) {
