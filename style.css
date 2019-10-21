@@ -45,7 +45,7 @@ main {
 }
 
 .results {
-  height: calc(100% - 60px);
+  height: calc(100% - 57px);
   overflow-y: scroll;
   overflow-x: hidden;
   contain: strict;
