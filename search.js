@@ -178,16 +178,16 @@ function renderResults (emojiNameArray, containerElement) {
   var fragment = document.createDocumentFragment()
   var modifierValue = preference['skin-tone-modifier']
   var modifier = modifiers.indexOf(modifierValue) >= 0 ? modifierValue : null
-  emojiNameArray.forEach(function (name) {
+  const elems = emojiNameArray.map(function (name) {
     var unicode = addModifier(emojilib[name], modifier) || '--'
     var resultElement = document.createElement('button')
     resultElement.type = 'button'
     resultElement.className = 'emoji'
     resultElement.setAttribute('aria-label', name)
     resultElement.textContent = unicode
-    fragment.appendChild(resultElement)
+    return resultElement;
   })
-  containerElement.appendChild(fragment)
+  containerElement.append(...elems);
 }
 
 function buildEmojikeyIndexTable () {
