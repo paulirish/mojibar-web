@@ -4,11 +4,14 @@
   "description": "Mojibar but without the electron stuff",
   "main": "index.html",
   "scripts": {
-    "build": "parcel index.html"
+    "serve": "parcel index.html",
+    "build": "rm -rf dist/*; parcel build --public-url '.' index.html",
+    "deploy": "gh-pages -d dist"
   },
   "author": "muan",
   "license": "MIT",
   "devDependencies": {
+    "gh-pages": "^2.1.1",
     "parcel": "^1.12.4"
   },
   "dependencies": {
