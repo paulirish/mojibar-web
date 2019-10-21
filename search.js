@@ -175,7 +175,6 @@ function search (query, shouldSkipThrottling) {
 
 function renderResults (emojiNameArray, containerElement) {
   containerElement.innerHTML = ''
-  var fragment = document.createDocumentFragment()
   var modifierValue = preference['skin-tone-modifier']
   var modifier = modifiers.indexOf(modifierValue) >= 0 ? modifierValue : null
   const elems = emojiNameArray.map(function (name) {
