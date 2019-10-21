@@ -61,11 +61,7 @@ searchInput.addEventListener('input', function () {
 //   fetchAndUpdateLocalCache()
 // })
 
-document.addEventListener('mousewheel', function (e) {
-  if (e.deltaY % 1 !== 0) {
-    e.preventDefault()
-  }
-})
+
 document.addEventListener('keydown', function (evt) {
   var onSearchField = !!evt.target.dataset.isSearchInput
   if (onSearchField) {
