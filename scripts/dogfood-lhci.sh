@@ -12,7 +12,7 @@ yarn serve &
 sleep 2
 lhci collect --url=http://localhost:8054/index.html
 # Upload the results to the server with a 7day TTL
-lhci upload --serverBaseUrl="$LHCI_CANARY_SERVER_URL"
+lhci upload --serverBaseUrl="https://lhci-canary.herokuapp.com/"
 
 # Kill the static server from earlier.
 kill $!
