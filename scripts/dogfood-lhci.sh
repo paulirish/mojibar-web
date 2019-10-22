@@ -10,7 +10,7 @@ yarn serve &
 sleep 2
 lhci collect --url=http://localhost:8054/index.html
 # Upload the results to the server with a 7day TTL
-lhci upload --target=temporary-public-storage
+lhci upload --serverBaseUrl="$LHCI_CANARY_SERVER_URL" --token="$LHCI_CANARY_SERVER_TOKEN"
 
 # Kill the static server from earlier.
 kill $!
