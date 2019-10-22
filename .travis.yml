@@ -1,0 +1,29 @@
+sudo: required
+language: node_js
+branches:
+  only:
+  - master
+matrix:
+  include:
+    - node_js: "10"
+    - node_js: "12"
+      if: head_branch IS blank AND branch = master
+cache:
+  yarn: true
+  directories:
+    - node_modules
+install:
+  # Ensure we have the latest Chrome stable.
+  - google-chrome-stable --version
+  - yarn --frozen-lockfile
+before_script:
+  - export CHROME_PATH="$(which google-chrome-stable)"
+  # Print out the Chrome version so we know what we're working with
+  - google-chrome-stable --version
+  - yarn build
+script:
+  - yarn dogfood-lhci
+addons:
+  chrome: stable
+services:
+  - xvfb
