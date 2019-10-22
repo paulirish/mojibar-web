@@ -5,3 +5,5 @@ dist
 public
 
 yarn-error.log
+
+.lighthouseci
