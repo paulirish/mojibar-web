@@ -4,15 +4,18 @@
   "description": "Mojibar but without the electron stuff",
   "main": "index.html",
   "scripts": {
-    "serve": "parcel index.html",
+    "dev": "parcel index.html",
     "build": "parcel build -d public index.html",
-    "deploy": "rm -rf dist/*; parcel build -d public --public-url '.' index.html && gh-pages -d public"
+    "serve": "statikk --port 8054 public",
+    "deploy": "rm -rf dist/*; parcel build -d public --public-url '.' index.html && gh-pages -d public",
+    "dogfood-lhci": "./scripts/dogfood-lhci.sh"
   },
   "author": "muan",
   "license": "MIT",
   "devDependencies": {
     "gh-pages": "^2.1.1",
-    "parcel": "^1.12.4"
+    "parcel": "^1.12.4",
+    "statikk": "^1.1.1"
   },
   "dependencies": {
     "electron": "^6.0.12",

@@ -12,7 +12,7 @@ dev:
 
 ```sh
 yarn
-yarn serve
+yarn dev
 ```
 
 screenshot of filtering:
