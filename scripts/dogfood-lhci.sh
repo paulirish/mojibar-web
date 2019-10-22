@@ -5,7 +5,7 @@ set -eox pipefail
 # Install LHCI
 npm install -g @lhci/cli@next
 # Start up a local webserve
-yarn serve
+yarn serve &
 # Wait for the server to start
 sleep 2
 lhci collect --url=http://localhost:8054/index.html
