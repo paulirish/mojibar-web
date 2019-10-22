@@ -1,0 +1,7 @@
+.cache
+.parcel-cache
+
+dist
+public
+
+yarn-error.log

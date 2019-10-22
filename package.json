@@ -5,7 +5,8 @@
   "main": "index.html",
   "scripts": {
     "serve": "parcel index.html",
-    "deploy": "rm -rf dist/*; parcel build --public-url '.' index.html && gh-pages -d dist"
+    "build": "parcel build -d public index.html",
+    "deploy": "rm -rf dist/*; parcel build -d public --public-url '.' index.html && gh-pages -d public"
   },
   "author": "muan",
   "license": "MIT",
