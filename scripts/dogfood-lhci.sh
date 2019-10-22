@@ -2,7 +2,7 @@
 
 set -eox pipefail
 
-export LHCI_TOKEN 4d4aa83e-8815-4be3-b3eb-7c9fd8cb19b1
+export LHCI_TOKEN=4d4aa83e-8815-4be3-b3eb-7c9fd8cb19b1
 
 # Install LHCI
 npm install -g @lhci/cli@next
